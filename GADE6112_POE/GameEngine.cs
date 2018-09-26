@@ -347,7 +347,7 @@ namespace GADE6112_POE
                     }
                     else if (M.UnitsOnMap[i].GetType() == typeof(BarbarianMelee)) //This if statements is used to determine which type the Unit is
                     {
-                        BarbarianMelee soldier = (BarbarianMelee)M.UnitsOnMap[i]; //This casts the Unit as a MeleeUnit, this allows us to access its properties000000000000000000000000000000000000000
+                        BarbarianMelee soldier = (BarbarianMelee)M.UnitsOnMap[i]; //This casts the Unit as a BarbarianMeleeUnit, this allows us to access its properties000000000000000000000000000000000000000
                                                                                   //soldier.closestUnit(UnitsOnMap);
                         if (soldier.IsAlive == true) //This if statements checks if the current Unit is alive or not
                         {
@@ -375,7 +375,7 @@ namespace GADE6112_POE
                                     }
                                     else soldier.combatWithEnemy(enemy); //If the Unit is in range, a combat action is inititated
                                 }
-                                else
+                                else if (soldier.closestUnit(M.UnitsOnMap).GetType() == typeof(RangedUnit))
                                 {
                                     RangedUnit enemy = (RangedUnit)soldier.closestUnit(M.UnitsOnMap);
                                     if (soldier.inRange(soldier.closestUnit(M.UnitsOnMap)) == false)
@@ -408,7 +408,7 @@ namespace GADE6112_POE
                     }
                     else if (M.UnitsOnMap[i].GetType() == typeof(BarbarianRanged)) //This if statements is used to determine which type the Unit is
                     {
-                        BarbarianRanged soldier = (BarbarianRanged)M.UnitsOnMap[i]; //This casts the Unit as a MeleeUnit, this allows us to access its properties000000000000000000000000000000000000000
+                        BarbarianRanged soldier = (BarbarianRanged)M.UnitsOnMap[i]; //This casts the Unit as a BarbarianRangedUnit, this allows us to access its properties000000000000000000000000000000000000000
                                                                         //soldier.closestUnit(UnitsOnMap);
                         if (soldier.IsAlive == true) //This if statements checks if the current Unit is alive or not
                         {
@@ -436,8 +436,8 @@ namespace GADE6112_POE
                                     }
                                     else soldier.combatWithEnemy(enemy); //If the Unit is in range, a combat action is inititated
                                 }
-                                else
-                                {
+                                else if (soldier.closestUnit(M.UnitsOnMap).GetType() == typeof(RangedUnit))
+                            {
                                     RangedUnit enemy = (RangedUnit)soldier.closestUnit(M.UnitsOnMap);
                                     if (soldier.inRange(soldier.closestUnit(M.UnitsOnMap)) == false)
                                     {
