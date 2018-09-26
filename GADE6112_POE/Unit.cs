@@ -43,8 +43,6 @@ namespace GADE6112_POE
 
         abstract public Unit closestUnit(Unit[] MapOfUnits);  //This method is used to obtain the closest enemy
 
-        //abstract public Building closestBuilding(Building[] MapOfBuildings);
-
         abstract public void isDead(); //This method is used to assign the units current alive status
 
         abstract public string toString(); //This method builds the units information into a string
